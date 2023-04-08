@@ -21,9 +21,9 @@ public class LoadDatabase {
         return new CommandLineRunner() {
             @Override
             public void run(String... args) throws Exception {
-                log.info("preloading"+patientRepository.save(new Patient("mahesh","corona",84129756,"1st flower","insurance")));
-                log.info("preloading"+patientRepository.save(new Patient("Sakshi","H3N2",567679756,"2st flower","insurance")));
-                log.info("preloading"+patientRepository.save(new Patient("Tejas","maleria",353629756,"3st flower","insurance")));
+                log.info("preloading"+patientRepository.save(new Patient("mahesh","corona",84129756,"1st flower First bed","insurance")));
+                log.info("preloading"+patientRepository.save(new Patient("SakShi","H3N2",567679756,"2st flower second bed","insurance")));
+                log.info("preloading"+patientRepository.save(new Patient("TeJas","maleRia",353629756,"3st flower third bed","insurance")));
 
 
 

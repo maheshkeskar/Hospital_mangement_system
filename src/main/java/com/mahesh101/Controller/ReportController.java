@@ -1,5 +1,6 @@
 package com.mahesh101.Controller;
 
+import ch.qos.logback.core.status.Status;
 import com.mahesh101.CustomExaption.ReportNotFoundException;
 import com.mahesh101.Repository.ReportRepository;
 import com.mahesh101.assemblers.ReportModelAssembler;
@@ -7,9 +8,12 @@ import com.mahesh101.model.Report;
 
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.hateoas.MediaTypes;
+import org.springframework.hateoas.mediatype.problem.Problem;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -42,10 +46,6 @@ public class ReportController{
         Report report = reportRepository.findById(id) //
                 .orElseThrow(() -> new ReportNotFoundException(id));
 
-        return reportModelAssembler.t
+        return reportModelAssembler.toModel(report);
  }
-
-
-
-
 }
